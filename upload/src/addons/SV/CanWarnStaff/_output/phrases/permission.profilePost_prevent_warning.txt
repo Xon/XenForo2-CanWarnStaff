@@ -1,0 +1,1 @@
+Prevent profile posts being warned

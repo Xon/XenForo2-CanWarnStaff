@@ -1,0 +1,17 @@
+{
+    "XF-Entity-Post_SV-CanWarnStaff-XF-Entity-Post.json": {
+        "hash": "7c612e164ef6e896350631a5d6b5e642"
+    },
+    "XF-Entity-ProfilePost_SV-CanWarnStaff-XF-Entity-ProfilePost.json": {
+        "hash": "8cf52a71ab0ddd9e4fe734cc615db5eb"
+    },
+    "XF-Entity-Thread_SV-CanWarnStaff-XF-Entity-Thread.json": {
+        "hash": "2f2c76b29819f9cc59be3d5ca15ae17d"
+    },
+    "XF-Entity-User_SV-CanWarnStaff-XF-Entity-User.json": {
+        "hash": "6e9ec9d2edc68ab5f582c54e3f7ea28c"
+    },
+    "XF-Entity-Warning_SV-CanWarnStaff-XF-Entity-Warning.json": {
+        "hash": "653cafb292a951231e2fb86e8811a69e"
+    }
+}

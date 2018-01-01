@@ -1,0 +1,6 @@
+{
+    "depend_permission_id": "warn",
+    "display_order": 221,
+    "interface_group_id": "forumModeratorPermissions",
+    "permission_type": "flag"
+}

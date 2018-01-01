@@ -1,0 +1,6 @@
+{
+    "depend_permission_id": "manageWarning",
+    "display_order": 126,
+    "interface_group_id": "generalModeratorPermissions",
+    "permission_type": "flag"
+}
