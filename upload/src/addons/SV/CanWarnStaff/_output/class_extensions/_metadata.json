@@ -5,13 +5,16 @@
     "XF-Entity-ProfilePost_SV-CanWarnStaff-XF-Entity-ProfilePost.json": {
         "hash": "8cf52a71ab0ddd9e4fe734cc615db5eb"
     },
-    "XF-Entity-Thread_SV-CanWarnStaff-XF-Entity-Thread.json": {
-        "hash": "2f2c76b29819f9cc59be3d5ca15ae17d"
+    "XF-Entity-ThreadReplyBan_SV-CanWarnStaff-XF-Entity-ThreadReplyBan.json": {
+        "hash": "9d8ce9edb96bd39d0b7c2a1239f4d896"
     },
     "XF-Entity-User_SV-CanWarnStaff-XF-Entity-User.json": {
         "hash": "6e9ec9d2edc68ab5f582c54e3f7ea28c"
     },
     "XF-Entity-Warning_SV-CanWarnStaff-XF-Entity-Warning.json": {
         "hash": "653cafb292a951231e2fb86e8811a69e"
+    },
+    "XF-Service-Thread-ReplyBan_SV-CanWarnStaff-XF-Service-Thread-ReplyBan.json": {
+        "hash": "f89e3c9cdabe79539c5dd5c92a434307"
     }
 }

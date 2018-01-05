@@ -1,6 +1,6 @@
 {
-    "depend_permission_id": "warn",
-    "display_order": 221,
+    "permission_type": "flag",
     "interface_group_id": "forumModeratorPermissions",
-    "permission_type": "flag"
+    "display_order": 221,
+    "depend_permission_id": "warn"
 }

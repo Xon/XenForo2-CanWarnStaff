@@ -4,5 +4,41 @@
         "version_id": 2000010,
         "version_string": "2.0.0 Alpha",
         "hash": "cba785dd84752044f60d1ed0461353c2"
+    },
+    "permission.general_manageWarning_admin.txt": {
+        "global_cache": false,
+        "version_id": 2000010,
+        "version_string": "2.0.0 Alpha",
+        "hash": "9369e40c9699e4bf020d0bc15ec6a5cb"
+    },
+    "permission.general_manageWarning_mod.txt": {
+        "global_cache": false,
+        "version_id": 2000010,
+        "version_string": "2.0.0 Alpha",
+        "hash": "80c380bd59b7269bda7abe76534694cc"
+    },
+    "permission.general_prevent_warning.txt": {
+        "global_cache": false,
+        "version_id": 2000010,
+        "version_string": "2.0.0 Alpha",
+        "hash": "00196b831a5d3e80265ca0d8c0e10943"
+    },
+    "permission.general_warn_admin.txt": {
+        "global_cache": false,
+        "version_id": 2000010,
+        "version_string": "2.0.0 Alpha",
+        "hash": "7ed382d7218688154ad804e9b5512e93"
+    },
+    "permission.general_warn_mod.txt": {
+        "global_cache": false,
+        "version_id": 2000010,
+        "version_string": "2.0.0 Alpha",
+        "hash": "9ce280d40e7e0e97fc9b40c7d8d903a4"
+    },
+    "permission.profilePost_prevent_warning.txt": {
+        "global_cache": false,
+        "version_id": 2000010,
+        "version_string": "2.0.0 Alpha",
+        "hash": "77e77e669a9d310b8a76d3591c532cdc"
     }
 }
