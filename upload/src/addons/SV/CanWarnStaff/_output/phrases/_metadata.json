@@ -1,4 +1,16 @@
 {
+    "no_permission_to_delete_thread_reply_ban_from_admin.txt": {
+        "global_cache": false,
+        "version_id": 2000010,
+        "version_string": "2.0.0 Alpha",
+        "hash": "5e0070865e931e78fac53a4a9adb330b"
+    },
+    "no_permission_to_delete_thread_reply_ban_from_mod.txt": {
+        "global_cache": false,
+        "version_id": 2000010,
+        "version_string": "2.0.0 Alpha",
+        "hash": "8b0bed8243f13552a152fd6e2734d8a3"
+    },
     "permission.forum_prevent_warning.txt": {
         "global_cache": false,
         "version_id": 2000010,

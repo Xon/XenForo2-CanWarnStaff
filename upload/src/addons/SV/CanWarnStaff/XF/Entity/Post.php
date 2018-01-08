@@ -10,9 +10,18 @@ class Post extends XFCP_Post {
 	 * @return bool
 	 */
 	public function canWarn(&$error = null) {
+		if (
+			$this->warning_id
+			|| !$this->user_id
+			|| !\XF::visitor()->user_id
+			|| $this->user_id == \XF::visitor()->user_id
+		) {
+			return false;
+		}
+
 		return (
-			parent::canWarn($error) &&
-		    !$this->User->PermissionSet->hasGlobalPermission('forum', 'prevent_warning')
+			!$this->User->PermissionSet->hasGlobalPermission('forum', 'prevent_warning') &&
+			parent::canWarn($error)
 		);
 	}
 

@@ -36,6 +36,12 @@ class User extends XFCP_User {
 	 */
 	public function canBeReported(&$error = null)
 	{
-		return \XF::visitor()->canReport($error);
+		$parentResult = parent::canBeReported();
+
+		if (\XF::visitor()->canReport($error) && $this->is_staff) {
+			return true;
+		}
+
+		return $parentResult;
 	}
 }

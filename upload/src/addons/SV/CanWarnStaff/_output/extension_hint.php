@@ -12,6 +12,18 @@ namespace SV\CanWarnStaff\XF\Entity
 	class XFCP_Warning extends \XF\Entity\Warning {}
 }
 
+namespace SV\CanWarnStaff\XF\Finder
+{
+	class XFCP_Post extends \XF\Finder\Post {}
+}
+
+namespace SV\CanWarnStaff\XF\Repository
+{
+	class XFCP_Post extends \XF\Repository\Post {}
+	class XFCP_ProfilePost extends \XF\Repository\ProfilePost {}
+	class XFCP_User extends \XF\Repository\User {}
+}
+
 namespace SV\CanWarnStaff\XF\Service\Thread
 {
 	class XFCP_ReplyBan extends \XF\Service\Thread\ReplyBan {}

@@ -14,6 +14,18 @@
     "XF-Entity-Warning_SV-CanWarnStaff-XF-Entity-Warning.json": {
         "hash": "653cafb292a951231e2fb86e8811a69e"
     },
+    "XF-Finder-Post_SV-CanWarnStaff-XF-Finder-Post.json": {
+        "hash": "57d11cce5f3c4945bfc59a85a16b1f58"
+    },
+    "XF-Repository-Post_SV-CanWarnStaff-XF-Repository-Post.json": {
+        "hash": "9b0ea7ac3b1c12c5a9ba7c5adfdefc55"
+    },
+    "XF-Repository-ProfilePost_SV-CanWarnStaff-XF-Repository-ProfilePost.json": {
+        "hash": "6ffc11338cacb7082aca3f9d45a02fac"
+    },
+    "XF-Repository-User_SV-CanWarnStaff-XF-Repository-User.json": {
+        "hash": "46292a4c394dd09ce36ee7d5073fe7bd"
+    },
     "XF-Service-Thread-ReplyBan_SV-CanWarnStaff-XF-Service-Thread-ReplyBan.json": {
         "hash": "f89e3c9cdabe79539c5dd5c92a434307"
     }
