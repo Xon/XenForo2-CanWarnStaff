@@ -12,14 +12,9 @@ namespace SV\CanWarnStaff\XF\Entity
 	class XFCP_Warning extends \XF\Entity\Warning {}
 }
 
-namespace SV\CanWarnStaff\XF\Finder
-{
-	class XFCP_Post extends \XF\Finder\Post {}
-}
-
 namespace SV\CanWarnStaff\XF\Repository
 {
-	class XFCP_Post extends \XF\Repository\Post {}
+	class XFCP_Attachment extends \XF\Repository\Attachment {}
 	class XFCP_ProfilePost extends \XF\Repository\ProfilePost {}
 	class XFCP_User extends \XF\Repository\User {}
 }
