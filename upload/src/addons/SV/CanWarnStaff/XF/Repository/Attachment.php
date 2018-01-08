@@ -10,12 +10,12 @@ class Attachment extends XFCP_Attachment
     public function addAttachmentsToContent($content, $contentType, $countKey = 'attach_count', $relationKey = 'Attachments')
     {
         parent::addAttachmentsToContent($content, $contentType, $countKey, $relationKey);;
-        if($contentType === 'post')
+        if ($contentType === 'post')
         {
             $permCombIds = [];
             foreach ($content AS $id => $item)
             {
-                /** @var Entity $item*/
+                /** @var Entity $item */
                 $permCombIds[] = $item->getRelation('User')->getValue('permission_combination_id');
             }
             $uniquePermCombIds = array_unique($permCombIds);
