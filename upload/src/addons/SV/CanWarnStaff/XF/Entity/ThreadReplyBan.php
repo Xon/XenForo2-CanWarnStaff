@@ -11,11 +11,11 @@ class ThreadReplyBan extends XFCP_ThreadReplyBan
      */
     protected function _preDelete()
     {
-        if ($this->BannedBy->is_admin && !\XF::visitor()->hasPermission('general', 'manageWarning_admin'))
+        if ($this->BannedBy && $this->BannedBy->is_admin && !\XF::visitor()->hasPermission('general', 'manageWarning_admin'))
         {
             $this->error(\XF::phrase('no_permission_to_delete_thread_reply_ban_from_admin'));
         }
-        if ($this->BannedBy->is_moderator && !\XF::visitor()->hasPermission('general', 'manageWarning_mod'))
+        if ($this->BannedBy && $this->BannedBy->is_moderator && !\XF::visitor()->hasPermission('general', 'manageWarning_mod'))
         {
             $this->error(\XF::phrase('no_permission_to_delete_thread_reply_ban_from_mod'));
         }

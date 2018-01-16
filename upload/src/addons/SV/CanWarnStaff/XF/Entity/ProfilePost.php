@@ -14,7 +14,7 @@ class ProfilePost extends XFCP_ProfilePost
     {
         return (
             parent::canWarn($error) &&
-            !$this->User->PermissionSet->hasGlobalPermission('profilePost', 'prevent_warning')
+            (!$this->User || !$this->User->PermissionSet->hasGlobalPermission('profilePost', 'prevent_warning'))
         );
     }
 }

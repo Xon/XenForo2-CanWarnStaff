@@ -50,6 +50,11 @@ class Warning extends XFCP_Warning
      */
     private function checkManageStaffWarning()
     {
+        if (!$this->User)
+        {
+            return false;
+        }
+
         if ($this->User->is_admin)
         {
             return \XF::visitor()->hasPermission('general', 'manageWarning_admin');

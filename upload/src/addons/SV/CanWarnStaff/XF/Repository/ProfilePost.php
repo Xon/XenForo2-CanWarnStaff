@@ -2,6 +2,8 @@
 
 namespace SV\CanWarnStaff\XF\Repository;
 
+use XF\Mvc\Entity\Entity;
+
 class ProfilePost extends XFCP_ProfilePost
 {
     /**
@@ -18,12 +20,22 @@ class ProfilePost extends XFCP_ProfilePost
         $permCombIds = [];
         foreach ($profilePosts as $profilePostId => $profilePost)
         {
-            $permCombIds[] = $profilePost->getRelation('User')->getValue('permission_combination_id');
+            /** @var Entity $item */
+            $user = $profilePost->getRelation('User');
+            if ($user)
+            {
+                $permCombIds[] = $user->getValue('permission_combination_id');
+            }
 
             $comments = $profilePost->LatestComments;
             foreach ($comments as $comment)
             {
-                $permCombIds[] = $comment->getRelation('User')->getValue('permission_combination_id');
+                /** @var Entity $comment */
+                $user = $comment->getRelation('User');
+                if ($user)
+                {
+                    $permCombIds[] = $user->getValue('permission_combination_id');
+                }
             }
         }
         $uniquePermCombIds = array_unique($permCombIds);

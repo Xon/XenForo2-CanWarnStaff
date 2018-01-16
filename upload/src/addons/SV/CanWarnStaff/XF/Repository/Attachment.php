@@ -16,7 +16,11 @@ class Attachment extends XFCP_Attachment
             foreach ($content AS $id => $item)
             {
                 /** @var Entity $item */
-                $permCombIds[] = $item->getRelation('User')->getValue('permission_combination_id');
+                $user = $item->getRelation('User');
+                if ($user)
+                {
+                    $permCombIds[] = $user->getValue('permission_combination_id');
+                }
             }
             $uniquePermCombIds = array_unique($permCombIds);
             /** @var \SV\CanWarnStaff\XF\Repository\User $userRepo */
