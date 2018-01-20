@@ -6,6 +6,8 @@ use XF\Mvc\Entity\Entity;
 
 class ProfilePost extends XFCP_ProfilePost
 {
+
+    protected $recursionGuard = false;
     /**
      * Preload global permission_combination from profile posts & comments
      *
@@ -17,32 +19,50 @@ class ProfilePost extends XFCP_ProfilePost
         /** @var \XF\Mvc\Entity\ArrayCollection $parentResult */
         $parentResult = parent::addCommentsToProfilePosts($profilePosts);
 
-        $permCombIds = [];
-        foreach ($profilePosts as $profilePostId => $profilePost)
+        if ($this->recursionGuard)
         {
-            /** @var Entity $item */
-            $user = $profilePost->getRelation('User');
-            if ($user)
-            {
-                $permCombIds[] = $user->getValue('permission_combination_id');
-            }
+            return $parentResult;
+        }
+        $oldRecursionGuard = $this->recursionGuard;
+        $this->recursionGuard = true;
+        try
+        {
 
-            $comments = $profilePost->LatestComments;
-            foreach ($comments as $comment)
+            $permCombIds = [];
+            foreach ($profilePosts as $profilePostId => $profilePost)
             {
-                /** @var Entity $comment */
-                $user = $comment->getRelation('User');
+                /** @var Entity $item */
+                $user = $profilePost->getRelation('User');
                 if ($user)
                 {
                     $permCombIds[] = $user->getValue('permission_combination_id');
                 }
-            }
-        }
-        $uniquePermCombIds = array_unique($permCombIds);
-        /** @var \SV\CanWarnStaff\XF\Repository\User $userRepo */
-        $userRepo = \XF::repository('XF:User');
-        $userRepo->preloadGlobalPermissionsFromIds($uniquePermCombIds);
 
+                if (empty($profilePost->latest_comment_ids))
+                {
+                    continue;
+                }
+
+                $comments = $profilePost->LatestComments;
+                foreach ($comments as $comment)
+                {
+                    /** @var Entity $comment */
+                    $user = $comment->getRelation('User');
+                    if ($user)
+                    {
+                        $permCombIds[] = $user->getValue('permission_combination_id');
+                    }
+                }
+            }
+            $uniquePermCombIds = array_unique($permCombIds);
+            /** @var \SV\CanWarnStaff\XF\Repository\User $userRepo */
+            $userRepo = \XF::repository('XF:User');
+            $userRepo->preloadGlobalPermissionsFromIds($uniquePermCombIds);
+        }
+        finally
+        {
+            $this->recursionGuard = $oldRecursionGuard;
+        }
         return $parentResult;
     }
 }
