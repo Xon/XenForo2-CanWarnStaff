@@ -19,7 +19,7 @@ class ProfilePost extends XFCP_ProfilePost
         /** @var \XF\Mvc\Entity\ArrayCollection $parentResult */
         $parentResult = parent::addCommentsToProfilePosts($profilePosts);
 
-        if ($this->recursionGuard)
+        if ($this->recursionGuard || !\XF::visitor()->hasPermission('profilePost', 'warn'))
         {
             return $parentResult;
         }
@@ -27,7 +27,7 @@ class ProfilePost extends XFCP_ProfilePost
         $this->recursionGuard = true;
         try
         {
-
+            $visitor = \XF::visitor();
             $permCombIds = [];
             foreach ($profilePosts as $profilePostId => $profilePost)
             {
@@ -55,9 +55,12 @@ class ProfilePost extends XFCP_ProfilePost
                 }
             }
             $uniquePermCombIds = array_unique($permCombIds);
-            /** @var \SV\CanWarnStaff\XF\Repository\User $userRepo */
-            $userRepo = \XF::repository('XF:User');
-            $userRepo->preloadGlobalPermissionsFromIds($uniquePermCombIds);
+            if ($uniquePermCombIds)
+            {
+                /** @var \SV\CanWarnStaff\XF\Repository\User $userRepo */
+                $userRepo = \XF::repository('XF:User');
+                $userRepo->preloadGlobalPermissionsFromIds($uniquePermCombIds);
+            }
         }
         finally
         {
