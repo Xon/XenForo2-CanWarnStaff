@@ -23,8 +23,8 @@ class Post extends XFCP_Post
         }
 
         return (
-            (!$this->User || !$this->User->PermissionSet->hasGlobalPermission('forum', 'prevent_warning')) &&
-            parent::canWarn($error)
+            parent::canWarn($error) &&
+            (!$this->User || !$this->User->PermissionSet->hasGlobalPermission('forum', 'prevent_warning'))
         );
     }
 }
