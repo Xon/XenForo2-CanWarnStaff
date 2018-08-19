@@ -1,29 +1,29 @@
 {
     "XF-Entity-Post_SV-CanWarnStaff-XF-Entity-Post.json": {
-        "hash": "7c612e164ef6e896350631a5d6b5e642"
+        "hash": "8d6c9cb337120df1902810feeeafbdb8"
     },
     "XF-Entity-ProfilePost_SV-CanWarnStaff-XF-Entity-ProfilePost.json": {
-        "hash": "8cf52a71ab0ddd9e4fe734cc615db5eb"
+        "hash": "04c80700687bb872ced852ad5f16cd42"
     },
     "XF-Entity-ThreadReplyBan_SV-CanWarnStaff-XF-Entity-ThreadReplyBan.json": {
-        "hash": "9d8ce9edb96bd39d0b7c2a1239f4d896"
+        "hash": "02e2e7889714493fa580b3323ea7ac41"
     },
     "XF-Entity-User_SV-CanWarnStaff-XF-Entity-User.json": {
-        "hash": "6e9ec9d2edc68ab5f582c54e3f7ea28c"
+        "hash": "1b2f6dd6ab5efbfd6c1dd6953894d991"
     },
     "XF-Entity-Warning_SV-CanWarnStaff-XF-Entity-Warning.json": {
-        "hash": "653cafb292a951231e2fb86e8811a69e"
+        "hash": "3458001a2db0d4f5ead69e938f15a569"
     },
     "XF-Repository-Attachment_SV-CanWarnStaff-XF-Repository-Attachment.json": {
-        "hash": "c2bebf581a0622a484fc3e20c6f3a8b3"
+        "hash": "8dd98d2f49237f644a411522d3b8d13b"
     },
     "XF-Repository-ProfilePost_SV-CanWarnStaff-XF-Repository-ProfilePost.json": {
-        "hash": "6ffc11338cacb7082aca3f9d45a02fac"
+        "hash": "8cb27136022452395662be999caa6f91"
     },
     "XF-Repository-User_SV-CanWarnStaff-XF-Repository-User.json": {
-        "hash": "46292a4c394dd09ce36ee7d5073fe7bd"
+        "hash": "775f82f44ee26ded973d62d9d7af3eaa"
     },
     "XF-Service-Thread-ReplyBan_SV-CanWarnStaff-XF-Service-Thread-ReplyBan.json": {
-        "hash": "f89e3c9cdabe79539c5dd5c92a434307"
+        "hash": "5b50e8906d3117a2015cd29aa07b75aa"
     }
 }
