@@ -13,7 +13,6 @@ class User extends XFCP_User
      */
     public function preloadGlobalPermissionsFromIds(array $permissionCombinationIds)
     {
-
         $cachedPerms = PermissionCacheProtectedCracker::getCachedGlobalPerms();
         foreach ($permissionCombinationIds as $key => $permissionCombinationId)
         {
@@ -31,6 +30,7 @@ class User extends XFCP_User
         $finder = $this->finder('XF:PermissionCombination')
                        ->where('permission_combination_id', $permissionCombinationIds);
 
+
         $permissionCombinations = $finder->fetchColumns(
             [
                 'permission_combination_id',
@@ -42,11 +42,7 @@ class User extends XFCP_User
         {
             if ($permissionCombination['cache_value'])
             {
-                $cache = @unserialize($permissionCombination['cache_value']);
-                \XF::permissionCache()->setGlobalPerms(
-                    $permissionCombination['permission_combination_id'],
-                    $cache
-                );
+                \XF\Entity\PermissionCombination::instantiateProxied($permissionCombination);
             }
         }
     }
