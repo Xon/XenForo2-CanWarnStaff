@@ -8,16 +8,18 @@ class ProfilePost extends XFCP_ProfilePost
 {
 
     protected $recursionGuard = false;
+
     /**
      * Preload global permission_combination from profile posts & comments
      *
      * @param \XF\Entity\ProfilePost[] $profilePosts
+     * @param bool                     $skipUnfurlRecrawl
      * @return \XF\Mvc\Entity\ArrayCollection
      */
-    public function addCommentsToProfilePosts($profilePosts)
+    public function addCommentsToProfilePosts($profilePosts, $skipUnfurlRecrawl = false)
     {
         /** @var \XF\Mvc\Entity\ArrayCollection $parentResult */
-        $parentResult = parent::addCommentsToProfilePosts($profilePosts);
+        $parentResult = parent::addCommentsToProfilePosts($profilePosts, $skipUnfurlRecrawl);
 
         if ($this->recursionGuard || !\XF::visitor()->hasPermission('profilePost', 'warn'))
         {
