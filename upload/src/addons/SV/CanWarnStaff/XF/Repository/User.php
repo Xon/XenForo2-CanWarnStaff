@@ -2,7 +2,7 @@
 
 namespace SV\CanWarnStaff\XF\Repository;
 
-use SV\CanWarnStaff\PermissionCacheProtectedCracker;
+use SV\Utils\BypassAccessStatus;
 
 class User extends XFCP_User
 {
@@ -13,7 +13,10 @@ class User extends XFCP_User
      */
     public function preloadGlobalPermissionsFromIds(array $permissionCombinationIds)
     {
-        $cachedPerms = PermissionCacheProtectedCracker::getCachedGlobalPerms();
+        $bypassAccessStatus = new BypassAccessStatus();
+        $getter = $bypassAccessStatus->getPrivate(\XF::permissionCache(), 'globalPerms');
+        $cachedPerms = $getter();
+
         foreach ($permissionCombinationIds as $key => $permissionCombinationId)
         {
             if (isset($cachedPerms[$permissionCombinationId]))

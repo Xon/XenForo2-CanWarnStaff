@@ -7,6 +7,8 @@ use XF\Mvc\Entity\Entity;
 
 class Attachment extends XFCP_Attachment
 {
+    protected $preloadPermissionsCombinationIds = [];
+
     public function addAttachmentsToContent($content, $contentType, $countKey = 'attach_count', $relationKey = 'Attachments')
     {
         parent::addAttachmentsToContent($content, $contentType, $countKey, $relationKey);
@@ -14,7 +16,6 @@ class Attachment extends XFCP_Attachment
         {
             $visitor = \XF::visitor();
             $doPermCheck = true;
-            $permCombIds = [];
             foreach ($content AS $id => $item)
             {
                 /** @var Entity|\XF\Entity\Post $item */
@@ -30,15 +31,21 @@ class Attachment extends XFCP_Attachment
                             break;
                         }
                     }
-                    $permCombIds[] = $user->getValue('permission_combination_id');
+                    $this->preloadPermissionsCombinationIds[(int)$user->getValue('permission_combination_id')] = true;
                 }
             }
-            $uniquePermCombIds = array_unique($permCombIds);
-            if ($uniquePermCombIds)
+
+            if ($this->preloadPermissionsCombinationIds)
             {
-                /** @var \SV\CanWarnStaff\XF\Repository\User $userRepo */
-                $userRepo = \XF::repository('XF:User');
-                $userRepo->preloadGlobalPermissionsFromIds($uniquePermCombIds);
+                \XF::runLater(function () {
+                    if ($this->preloadPermissionsCombinationIds)
+                    {
+                        /** @var \SV\CanWarnStaff\XF\Repository\User $userRepo */
+                        $userRepo = \XF::repository('XF:User');
+                        $userRepo->preloadGlobalPermissionsFromIds(array_keys($this->preloadPermissionsCombinationIds));
+                        $this->preloadPermissionsCombinationIds = [];
+                    }
+                });
             }
         }
     }
