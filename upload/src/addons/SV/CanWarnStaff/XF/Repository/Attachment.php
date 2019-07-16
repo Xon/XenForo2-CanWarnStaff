@@ -40,7 +40,7 @@ class Attachment extends XFCP_Attachment
                 \XF::runLater(function () {
                     if ($this->preloadPermissionsCombinationIds)
                     {
-                        /** @var \SV\CanWarnStaff\XF\Repository\User $userRepo */
+                        /** @var User $userRepo */
                         $userRepo = \XF::repository('XF:User');
                         $userRepo->preloadGlobalPermissionsFromIds(array_keys($this->preloadPermissionsCombinationIds));
                         $this->preloadPermissionsCombinationIds = [];

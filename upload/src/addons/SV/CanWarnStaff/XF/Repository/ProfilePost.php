@@ -29,7 +29,6 @@ class ProfilePost extends XFCP_ProfilePost
         $this->recursionGuard = true;
         try
         {
-            $visitor = \XF::visitor();
             $permCombIds = [];
             foreach ($profilePosts as $profilePostId => $profilePost)
             {
@@ -59,7 +58,7 @@ class ProfilePost extends XFCP_ProfilePost
             $uniquePermCombIds = array_unique($permCombIds);
             if ($uniquePermCombIds)
             {
-                /** @var \SV\CanWarnStaff\XF\Repository\User $userRepo */
+                /** @var User $userRepo */
                 $userRepo = \XF::repository('XF:User');
                 $userRepo->preloadGlobalPermissionsFromIds($uniquePermCombIds);
             }
