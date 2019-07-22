@@ -11,7 +11,8 @@ class Attachment extends XFCP_Attachment
 
     public function addAttachmentsToContent($content, $contentType, $countKey = 'attach_count', $relationKey = 'Attachments')
     {
-        parent::addAttachmentsToContent($content, $contentType, $countKey, $relationKey);
+        $content = parent::addAttachmentsToContent($content, $contentType, $countKey, $relationKey);
+
         if ($contentType === 'post')
         {
             $visitor = \XF::visitor();
@@ -48,5 +49,7 @@ class Attachment extends XFCP_Attachment
                 });
             }
         }
+
+        return $content;
     }
 }
