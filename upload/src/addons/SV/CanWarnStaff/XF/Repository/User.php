@@ -2,7 +2,7 @@
 
 namespace SV\CanWarnStaff\XF\Repository;
 
-use SV\Utils\BypassAccessStatus;
+use SV\StandardLib\BypassAccessStatus;
 
 class User extends XFCP_User
 {
