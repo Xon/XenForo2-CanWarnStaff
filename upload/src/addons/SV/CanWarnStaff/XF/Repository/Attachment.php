@@ -21,13 +21,13 @@ class Attachment extends XFCP_Attachment
             {
                 /** @var Entity|\XF\Entity\Post $item */
                 $user = $item->getRelation('User');
-                if ($user)
+                $thread = $item->Thread;
+                if ($user && $thread)
                 {
                     if ($doPermCheck)
                     {
                         $doPermCheck = false;
-                        /** @noinspection PhpUndefinedMethodInspection */
-                        if (!$visitor->hasNodePermission($item->Thread->node_id, 'warn'))
+                        if (!$visitor->hasNodePermission($thread->node_id, 'warn'))
                         {
                             break;
                         }

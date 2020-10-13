@@ -12,7 +12,7 @@ class ProfilePost extends XFCP_ProfilePost
     /**
      * Preload global permission_combination from profile posts & comments
      *
-     * @param \XF\Entity\ProfilePost[] $profilePosts
+     * @param \XF\Mvc\Entity\AbstractCollection|\XF\Entity\ProfilePost[] $profilePosts
      * @param bool                     $skipUnfurlRecrawl
      * @return \XF\Mvc\Entity\ArrayCollection
      */
