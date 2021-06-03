@@ -1,4 +1,7 @@
 <?php
+/**
+ * @noinspection PhpMissingReturnTypeInspection
+ */
 
 namespace SV\CanWarnStaff\XF\Repository;
 
@@ -30,7 +33,7 @@ class ProfilePost extends XFCP_ProfilePost
         try
         {
             $permCombIds = [];
-            foreach ($profilePosts as $profilePostId => $profilePost)
+            foreach ($profilePosts as $profilePost)
             {
                 /** @var Entity $item */
                 $user = $profilePost->getRelation('User');
@@ -55,7 +58,7 @@ class ProfilePost extends XFCP_ProfilePost
                     }
                 }
             }
-            $uniquePermCombIds = array_unique($permCombIds);
+            $uniquePermCombIds = \array_unique($permCombIds);
             if ($uniquePermCombIds)
             {
                 /** @var User $userRepo */

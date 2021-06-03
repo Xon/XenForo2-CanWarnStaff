@@ -1,4 +1,7 @@
 <?php
+/**
+ * @noinspection PhpMissingReturnTypeInspection
+ */
 
 namespace SV\CanWarnStaff\XF\Entity;
 
@@ -8,7 +11,7 @@ class Warning extends XFCP_Warning
     /**
      * Add checks for: permission to manage staff warnings
      *
-     * @param null $error
+     * @param \XF\Phrase|string|null $error
      * @return bool
      */
     public function canDelete(&$error = null)
@@ -27,7 +30,7 @@ class Warning extends XFCP_Warning
     /**
      * Add checks for: permission to manage staff warnings
      *
-     * @param null $error
+     * @param \XF\Phrase|string|null $error
      * @return bool
      */
     public function canEditExpiry(&$error = null)
@@ -48,7 +51,7 @@ class Warning extends XFCP_Warning
      *              and True if warning is for staff and visitor can manage warnings for them,
      *              otherwise False.
      */
-    private function checkManageStaffWarning()
+    private function checkManageStaffWarning(): bool
     {
         if (!$this->User)
         {

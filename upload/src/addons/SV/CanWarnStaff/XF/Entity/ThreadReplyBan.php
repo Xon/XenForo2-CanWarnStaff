@@ -6,8 +6,6 @@ class ThreadReplyBan extends XFCP_ThreadReplyBan
 {
     /**
      * Check for permission to delete thread reply bans
-     *
-     * @return bool|void
      */
     protected function _preDelete()
     {

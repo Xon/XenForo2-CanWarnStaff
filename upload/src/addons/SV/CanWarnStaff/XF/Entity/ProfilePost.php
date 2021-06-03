@@ -1,4 +1,7 @@
 <?php
+/**
+ * @noinspection PhpMissingReturnTypeInspection
+ */
 
 namespace SV\CanWarnStaff\XF\Entity;
 
@@ -7,7 +10,7 @@ class ProfilePost extends XFCP_ProfilePost
     /**
      * Prevent warning of profile posts in case of prevent_warning permission
      *
-     * @param null $error
+     * @param \XF\Phrase|string|null $error
      * @return bool
      */
     public function canWarn(&$error = null)
@@ -26,6 +29,6 @@ class ProfilePost extends XFCP_ProfilePost
         $profilePostRepo = $this->repository('XF:ProfilePost');
         $profilePostRepo->addCommentsToProfilePosts([$this->profile_post_id => $this]);
 
-        return isset($this->_getterCache['LatestComments']) ? $this->_getterCache['LatestComments'] : [];
+        return $this->_getterCache['LatestComments'] ?? [];
     }
 }

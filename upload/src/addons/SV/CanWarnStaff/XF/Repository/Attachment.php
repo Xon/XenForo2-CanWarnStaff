@@ -17,7 +17,7 @@ class Attachment extends XFCP_Attachment
         {
             $visitor = \XF::visitor();
             $doPermCheck = true;
-            foreach ($content AS $id => $item)
+            foreach ($content AS $item)
             {
                 /** @var Entity|\XF\Entity\Post $item */
                 $user = $item->getRelation('User');
@@ -43,7 +43,7 @@ class Attachment extends XFCP_Attachment
                     {
                         /** @var User $userRepo */
                         $userRepo = \XF::repository('XF:User');
-                        $userRepo->preloadGlobalPermissionsFromIds(array_keys($this->preloadPermissionsCombinationIds));
+                        $userRepo->preloadGlobalPermissionsFromIds(\array_keys($this->preloadPermissionsCombinationIds));
                         $this->preloadPermissionsCombinationIds = [];
                     }
                 });
