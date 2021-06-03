@@ -30,11 +30,25 @@ class User extends XFCP_User
      */
     public function isWarnable()
     {
-        return (
-            parent::isWarnable() ||
-            ($this->is_admin && \XF::visitor()->hasPermission('general', 'warn_admin')) ||
-            ($this->is_moderator && \XF::visitor()->hasPermission('general', 'warn_mod'))
-        );
+        $ret = parent::isWarnable();
+        if ($ret)
+        {
+            return true;
+        }
+
+        $visitor = \XF::visitor();
+
+        if ($this->is_admin && $visitor->hasPermission('general', 'warn_admin'))
+        {
+            return true;
+        }
+
+        if ($this->is_moderator && $visitor->hasPermission('general', 'warn_mod'))
+        {
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -45,13 +59,17 @@ class User extends XFCP_User
      */
     public function canBeReported(&$error = null)
     {
-        $parentResult = parent::canBeReported();
-
-        if (\XF::visitor()->canReport($error) && $this->is_staff)
+        $ret = parent::canBeReported($error);
+        if ($ret)
         {
             return true;
         }
 
-        return $parentResult;
+        if ($this->is_staff && \XF::visitor()->canReport($error))
+        {
+            return true;
+        }
+
+        return false;
     }
 }
