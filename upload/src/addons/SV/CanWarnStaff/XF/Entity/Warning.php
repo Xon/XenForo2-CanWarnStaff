@@ -16,15 +16,13 @@ class Warning extends XFCP_Warning
      */
     public function canDelete(&$error = null)
     {
-        $parentResult = parent::canDelete();
-        $visitor = \XF::visitor();
-
-        if (!$visitor->user_id || !$this->checkManageStaffWarning())
+        $ret = parent::canDelete($error);
+        if (!$ret)
         {
             return false;
         }
 
-        return $parentResult;
+        return $this->checkManageStaffWarning();
     }
 
     /**
@@ -35,15 +33,13 @@ class Warning extends XFCP_Warning
      */
     public function canEditExpiry(&$error = null)
     {
-        $parentResult = parent::canDelete();
-        $visitor = \XF::visitor();
-
-        if (!$visitor->user_id || !$this->checkManageStaffWarning())
+        $ret = parent::canDelete($error);
+        if (!$ret)
         {
             return false;
         }
 
-        return $parentResult;
+        return $this->checkManageStaffWarning();
     }
 
     /**
@@ -53,6 +49,12 @@ class Warning extends XFCP_Warning
      */
     private function checkManageStaffWarning(): bool
     {
+        $visitor = \XF::visitor();
+        if (!$visitor->user_id)
+        {
+            return false;
+        }
+
         if (!$this->User)
         {
             return false;
@@ -60,12 +62,12 @@ class Warning extends XFCP_Warning
 
         if ($this->User->is_admin)
         {
-            return \XF::visitor()->hasPermission('general', 'manageWarning_admin');
+            return (bool)$visitor->hasPermission('general', 'manageWarning_admin');
         }
 
         if ($this->User->is_moderator)
         {
-            return \XF::visitor()->hasPermission('general', 'manageWarning_mod');
+            return (bool)$visitor->hasPermission('general', 'manageWarning_mod');
         }
 
         return true;
