@@ -2,6 +2,8 @@
 
 namespace SV\CanWarnStaff\XF\Entity;
 
+use SV\CanWarnStaff\Globals;
+
 class ThreadReplyBan extends XFCP_ThreadReplyBan
 {
     /**
@@ -9,16 +11,20 @@ class ThreadReplyBan extends XFCP_ThreadReplyBan
      */
     protected function _preDelete()
     {
-        $visitor = \XF::visitor();
-        if ($user = $this->User)
+        if (Globals::$permCheckInDelete ?? false)
         {
-            if ($user->is_admin && !$visitor->hasPermission('general', 'manageWarning_admin'))
+            $user = $this->User;
+            if ($user)
             {
-                $this->error(\XF::phrase('no_permission_to_delete_thread_reply_ban_from_admin'));
-            }
-            if ($user->is_moderator && !$visitor->hasPermission('general', 'manageWarning_mod'))
-            {
-                $this->error(\XF::phrase('no_permission_to_delete_thread_reply_ban_from_mod'));
+                $visitor = \XF::visitor();
+                if ($user->is_admin && !$visitor->hasPermission('general', 'manageWarning_admin'))
+                {
+                    $this->error(\XF::phrase('no_permission_to_delete_thread_reply_ban_from_admin'));
+                }
+                if ($user->is_moderator && !$visitor->hasPermission('general', 'manageWarning_mod'))
+                {
+                    $this->error(\XF::phrase('no_permission_to_delete_thread_reply_ban_from_mod'));
+                }
             }
         }
 
