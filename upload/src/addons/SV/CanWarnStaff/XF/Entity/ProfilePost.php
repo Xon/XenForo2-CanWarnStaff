@@ -20,15 +20,4 @@ class ProfilePost extends XFCP_ProfilePost
             (!$this->User || !$this->User->PermissionSet->hasGlobalPermission('profilePost', 'prevent_warning'))
         );
     }
-
-    public function getLatestComments()
-    {
-        // workaround XF2.04 (and earlier) bug.
-
-        /** @var \XF\Repository\ProfilePost $profilePostRepo */
-        $profilePostRepo = $this->repository('XF:ProfilePost');
-        $profilePostRepo->addCommentsToProfilePosts([$this->profile_post_id => $this]);
-
-        return $this->_getterCache['LatestComments'] ?? [];
-    }
 }
