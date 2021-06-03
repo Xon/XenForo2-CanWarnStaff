@@ -15,10 +15,12 @@ class User extends XFCP_User
      */
     public function canWarn(&$error = null)
     {
-        return (
-            parent::canWarn($error) &&
-            !$this->hasPermission('general', 'prevent_warning')
-        );
+        if ($this->hasPermission('general', 'prevent_warning'))
+        {
+            return false;
+        }
+
+        return parent::canWarn($error);
     }
 
     /**
