@@ -17,9 +17,7 @@ class ReplyBan extends XFCP_ReplyBan
         $errors = parent::_validate();
 
         $user = $this->user;
-        if (
-            $user &&
-            $user->is_staff &&
+        if ($user->is_staff &&
             (
                 (!$user->is_admin && !$user->is_moderator) ||
                 ($user->is_admin && \XF::visitor()->hasPermission('general', 'warn_admin')) ||

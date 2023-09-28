@@ -5,6 +5,7 @@
 
 namespace SV\CanWarnStaff\XF\Repository;
 
+use XF\Mvc\Entity\AbstractCollection;
 use XF\Mvc\Entity\Entity;
 
 class ProfilePost extends XFCP_ProfilePost
@@ -15,13 +16,13 @@ class ProfilePost extends XFCP_ProfilePost
     /**
      * Preload global permission_combination from profile posts & comments
      *
-     * @param \XF\Mvc\Entity\AbstractCollection|\XF\Entity\ProfilePost[] $profilePosts
+     * @param AbstractCollection|\XF\Entity\ProfilePost[] $profilePosts
      * @param bool                     $skipUnfurlRecrawl
-     * @return \XF\Mvc\Entity\ArrayCollection
+     * @return AbstractCollection
      */
     public function addCommentsToProfilePosts($profilePosts, $skipUnfurlRecrawl = false)
     {
-        /** @var \XF\Mvc\Entity\ArrayCollection $parentResult */
+        /** @var AbstractCollection $parentResult */
         $parentResult = parent::addCommentsToProfilePosts($profilePosts, $skipUnfurlRecrawl);
 
         if ($this->recursionGuard || !\XF::visitor()->hasPermission('profilePost', 'warn'))

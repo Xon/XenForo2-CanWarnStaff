@@ -5,13 +5,15 @@
 
 namespace SV\CanWarnStaff\XF\Entity;
 
+use XF\Phrase;
+
 class Warning extends XFCP_Warning
 {
 
     /**
      * Add checks for: permission to manage staff warnings
      *
-     * @param \XF\Phrase|string|null $error
+     * @param Phrase|string|null $error
      * @return bool
      */
     public function canDelete(&$error = null)
@@ -28,7 +30,7 @@ class Warning extends XFCP_Warning
     /**
      * Add checks for: permission to manage staff warnings
      *
-     * @param \XF\Phrase|string|null $error
+     * @param Phrase|string|null $error
      * @return bool
      */
     public function canEditExpiry(&$error = null)

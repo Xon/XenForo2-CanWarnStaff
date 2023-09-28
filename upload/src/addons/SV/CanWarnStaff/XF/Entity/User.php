@@ -5,12 +5,14 @@
 
 namespace SV\CanWarnStaff\XF\Entity;
 
+use XF\Phrase;
+
 class User extends XFCP_User
 {
     /**
      * Prevent warning of users with prevent_warning permission
      *
-     * @param \XF\Phrase|string|null $error
+     * @param Phrase|string|null $error
      * @return bool
      */
     public function canWarn(&$error = null)
@@ -54,7 +56,7 @@ class User extends XFCP_User
     /**
      * Remove is_staff exclusion
      *
-     * @param \XF\Phrase|string|null $error
+     * @param Phrase|string|null $error
      * @return bool
      */
     public function canBeReported(&$error = null)

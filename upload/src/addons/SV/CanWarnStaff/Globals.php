@@ -2,7 +2,7 @@
 
 namespace SV\CanWarnStaff;
 
-class Globals
+abstract class Globals
 {
     /** @var bool */
     public static $permCheckInDelete = false;

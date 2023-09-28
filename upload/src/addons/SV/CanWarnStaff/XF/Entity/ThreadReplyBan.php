@@ -14,7 +14,7 @@ class ThreadReplyBan extends XFCP_ThreadReplyBan
         if (Globals::$permCheckInDelete ?? false)
         {
             $user = $this->User;
-            if ($user)
+            if ($user !== null)
             {
                 $visitor = \XF::visitor();
                 if ($user->is_admin && !$visitor->hasPermission('general', 'manageWarning_admin'))

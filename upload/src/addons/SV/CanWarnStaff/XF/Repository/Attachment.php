@@ -3,7 +3,7 @@
 
 namespace SV\CanWarnStaff\XF\Repository;
 
-use XF\Mvc\Entity\Entity;
+use XF\Entity\Post as PostEntity;
 
 class Attachment extends XFCP_Attachment
 {
@@ -19,10 +19,10 @@ class Attachment extends XFCP_Attachment
             $doPermCheck = true;
             foreach ($content AS $item)
             {
-                /** @var Entity|\XF\Entity\Post $item */
+                /** @var PostEntity $item */
                 $user = $item->getRelation('User');
                 $thread = $item->Thread;
-                if ($user && $thread)
+                if ($user !== null && $thread !== null)
                 {
                     if ($doPermCheck)
                     {

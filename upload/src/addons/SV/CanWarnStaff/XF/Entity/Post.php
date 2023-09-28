@@ -5,10 +5,12 @@
 
 namespace SV\CanWarnStaff\XF\Entity;
 
+use XF\Phrase;
+
 class Post extends XFCP_Post
 {
     /**
-     * @param \XF\Phrase|string|null $error
+     * @param Phrase|string|null $error
      * @return bool
      */
     public function canWarn(&$error = null)
