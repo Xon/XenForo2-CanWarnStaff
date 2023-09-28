@@ -6,10 +6,10 @@ AdminCP access can obviously bypass any warning issued, and warnings themselves 
 
 Introduces 7 new permissions:
 
-- Give moderators warnings directly. (Applys to thread reply bans)
-- Give administrators warnings directly. (Applys to thread reply bans)
-- Delete all warnings for Moderators. (Applys to thread reply bans)
-- Delete all warnings for Administrators. (Applys to thread reply bans)
+- Give moderators warnings directly. (Applies to thread reply bans & forum bans)
+- Give administrators warnings directly. (Applies to thread reply bans & forum bans)
+- Delete all warnings for Moderators. (Applies to thread reply bans & forum bans)
+- Delete all warnings for Administrators. (Applies to thread reply bans & forum bans)
 - Prevent posts being warned.
 - Prevent profile posts being warned.
 - Prevent being directly warned.
