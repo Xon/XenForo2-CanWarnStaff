@@ -33,7 +33,7 @@ class Warning extends XFCP_Warning
      */
     public function canEditExpiry(&$error = null)
     {
-        $ret = parent::canDelete($error);
+        $ret = parent::canEditExpiry($error);
         if (!$ret)
         {
             return false;
