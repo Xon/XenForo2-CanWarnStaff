@@ -1,7 +1,13 @@
 <?php
 
+/** @noinspection PhpIllegalPsrClassPathInspection */
 // ################## THIS IS A GENERATED FILE ##################
 // DO NOT EDIT DIRECTLY. EDIT THE CLASS EXTENSIONS IN THE CONTROL PANEL.
+
+namespace SV\CanWarnStaff\SV\ForumBan\Service
+{
+	class XFCP_ForumBan extends \SV\ForumBan\Service\ForumBan {}
+}
 
 namespace SV\CanWarnStaff\SV\ModeratorEssentials\Pub\Controller
 {

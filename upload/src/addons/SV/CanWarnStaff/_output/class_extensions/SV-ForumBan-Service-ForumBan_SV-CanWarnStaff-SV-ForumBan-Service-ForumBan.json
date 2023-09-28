@@ -1,0 +1,6 @@
+{
+    "from_class": "SV\\ForumBan\\Service\\ForumBan",
+    "to_class": "SV\\CanWarnStaff\\SV\\ForumBan\\Service\\ForumBan",
+    "execute_order": 6055,
+    "active": true
+}
