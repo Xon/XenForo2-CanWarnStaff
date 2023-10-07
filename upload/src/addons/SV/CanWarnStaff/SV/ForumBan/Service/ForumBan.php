@@ -7,13 +7,7 @@ namespace SV\CanWarnStaff\SV\ForumBan\Service;
  */
 class ForumBan extends XFCP_ForumBan
 {
-    /**
-     * Allow visitors with warn_admin or warn_mod permission to reply ban the respective groups
-     *
-     * @return array
-     * @noinspection PhpMissingReturnTypeInspection
-     */
-    protected function _validate()
+    protected function _validate(): array
     {
         $errors = parent::_validate();
 
