@@ -3,7 +3,10 @@
 
 namespace SV\CanWarnStaff\XF\Repository;
 
+use SV\StandardLib\Helper;
 use XF\Entity\Post as PostEntity;
+use SV\CanWarnStaff\XF\Repository\User as ExtendedUserRepo;
+use XF\Repository\User as UserRepo;
 
 /**
  * @extends \XF\Repository\Attachment
@@ -44,8 +47,8 @@ class Attachment extends XFCP_Attachment
                 \XF::runLater(function () {
                     if ($this->preloadPermissionsCombinationIds)
                     {
-                        /** @var User $userRepo */
-                        $userRepo = \XF::repository('XF:User');
+                        /** @var ExtendedUserRepo $userRepo */
+                        $userRepo = Helper::repository(UserRepo::class);
                         $userRepo->preloadGlobalPermissionsFromIds(\array_keys($this->preloadPermissionsCombinationIds));
                         $this->preloadPermissionsCombinationIds = [];
                     }
