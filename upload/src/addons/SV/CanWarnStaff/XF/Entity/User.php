@@ -32,6 +32,7 @@ class User extends XFCP_User
      * Permit warning of warnable admins/mods
      *
      * @return bool
+     * @noinspection SpellCheckingInspection
      */
     public function isWarnable()
     {

@@ -10,6 +10,8 @@ use SV\StandardLib\Helper;
 use XF\Mvc\Entity\AbstractCollection;
 use XF\Mvc\Entity\Entity;
 use XF\Repository\User as UserRepo;
+use function array_unique;
+use function count;
 
 /**
  * @extends \XF\Repository\ProfilePost
@@ -64,9 +66,9 @@ class ProfilePost extends XFCP_ProfilePost
                     }
                 }
             }
-            $uniquePermCombIds = \array_unique($permCombIds);
-            if ($uniquePermCombIds)
+            if (count($permCombIds) !== 0)
             {
+                $uniquePermCombIds = array_unique($permCombIds);
                 /** @var ExtendedUserRepo $userRepo */
                 $userRepo = Helper::repository(UserRepo::class);
                 $userRepo->preloadGlobalPermissionsFromIds($uniquePermCombIds);

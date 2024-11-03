@@ -7,6 +7,8 @@ use SV\StandardLib\Helper;
 use XF\Entity\Post as PostEntity;
 use SV\CanWarnStaff\XF\Repository\User as ExtendedUserRepo;
 use XF\Repository\User as UserRepo;
+use function array_keys;
+use function count;
 
 /**
  * @extends \XF\Repository\Attachment
@@ -42,14 +44,14 @@ class Attachment extends XFCP_Attachment
                 }
             }
 
-            if ($this->preloadPermissionsCombinationIds)
+            if (count($this->preloadPermissionsCombinationIds) !== 0)
             {
                 \XF::runLater(function () {
-                    if ($this->preloadPermissionsCombinationIds)
+                    if (count($this->preloadPermissionsCombinationIds) !== 0)
                     {
                         /** @var ExtendedUserRepo $userRepo */
                         $userRepo = Helper::repository(UserRepo::class);
-                        $userRepo->preloadGlobalPermissionsFromIds(\array_keys($this->preloadPermissionsCombinationIds));
+                        $userRepo->preloadGlobalPermissionsFromIds(array_keys($this->preloadPermissionsCombinationIds));
                         $this->preloadPermissionsCombinationIds = [];
                     }
                 });
