@@ -3,7 +3,7 @@
     "title": "Can Warn Staff",
     "description": "Allow moderators and administrators to be warned",
     "version_id": 1696650259,
-    "version_string": "2.3.1",
+    "version_string": "2.4.0",
     "dev": "Xon",
     "dev_url": "https://atelieraphelion.com",
     "faq_url": "",
@@ -14,8 +14,8 @@
     },
     "require": {
         "SV/StandardLib": [
-            2001180000,
-            "Standard Library by Xon v1.18.0+"
+            2001210000,
+            "Standard Library by Xon v1.21.0+"
         ],
         "XF": [
             "2.2.0",
