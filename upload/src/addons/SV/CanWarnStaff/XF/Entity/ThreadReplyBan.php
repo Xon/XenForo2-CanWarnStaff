@@ -4,6 +4,9 @@ namespace SV\CanWarnStaff\XF\Entity;
 
 use SV\CanWarnStaff\Globals;
 
+/**
+ * @extends \XF\Entity\ThreadReplyBan
+ */
 class ThreadReplyBan extends XFCP_ThreadReplyBan
 {
     /**

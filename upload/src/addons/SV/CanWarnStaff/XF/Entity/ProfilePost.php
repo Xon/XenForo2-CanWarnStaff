@@ -7,6 +7,9 @@ namespace SV\CanWarnStaff\XF\Entity;
 
 use XF\Phrase;
 
+/**
+ * @extends \XF\Entity\ProfilePost
+ */
 class ProfilePost extends XFCP_ProfilePost
 {
     /**

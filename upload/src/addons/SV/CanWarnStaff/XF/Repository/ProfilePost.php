@@ -8,9 +8,11 @@ namespace SV\CanWarnStaff\XF\Repository;
 use XF\Mvc\Entity\AbstractCollection;
 use XF\Mvc\Entity\Entity;
 
+/**
+ * @extends \XF\Repository\ProfilePost
+ */
 class ProfilePost extends XFCP_ProfilePost
 {
-
     protected $recursionGuard = false;
 
     /**

@@ -7,6 +7,9 @@ namespace SV\CanWarnStaff\XF\Entity;
 
 use XF\Phrase;
 
+/**
+ * @extends \XF\Entity\User
+ */
 class User extends XFCP_User
 {
     /**

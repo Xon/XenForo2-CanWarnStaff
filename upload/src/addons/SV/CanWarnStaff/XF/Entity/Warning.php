@@ -7,6 +7,9 @@ namespace SV\CanWarnStaff\XF\Entity;
 
 use XF\Phrase;
 
+/**
+ * @extends \XF\Entity\Warning
+ */
 class Warning extends XFCP_Warning
 {
 

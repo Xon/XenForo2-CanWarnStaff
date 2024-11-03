@@ -5,6 +5,9 @@
 
 namespace SV\CanWarnStaff\XF\Service\Thread;
 
+/**
+ * @extends \XF\Service\Thread\ReplyBan
+ */
 class ReplyBan extends XFCP_ReplyBan
 {
     /**

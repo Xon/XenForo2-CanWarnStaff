@@ -5,6 +5,9 @@ namespace SV\CanWarnStaff\XF\Repository;
 
 use XF\Entity\Post as PostEntity;
 
+/**
+ * @extends \XF\Repository\Attachment
+ */
 class Attachment extends XFCP_Attachment
 {
     protected $preloadPermissionsCombinationIds = [];

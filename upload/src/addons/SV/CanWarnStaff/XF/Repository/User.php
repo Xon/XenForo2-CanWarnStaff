@@ -4,6 +4,9 @@ namespace SV\CanWarnStaff\XF\Repository;
 
 use SV\StandardLib\Helper;
 
+/**
+ * @extends \XF\Repository\User
+ */
 class User extends XFCP_User
 {
     /**

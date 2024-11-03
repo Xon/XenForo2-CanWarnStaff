@@ -3,7 +3,7 @@
 namespace SV\CanWarnStaff\SV\ForumBan\Service;
 
 /**
- * Extends \SV\ForumBan\Service\ForumBan
+ * @extends \SV\ForumBan\Service\ForumBan
  */
 class ForumBan extends XFCP_ForumBan
 {
